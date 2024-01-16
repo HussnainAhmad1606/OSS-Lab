@@ -31,12 +31,12 @@ function Navbar() {
             </li>
 
             <li>
-              <Link href={"/explore"}>Explore</Link>
+              <Link href={"/project"}>Explore Projects</Link>
             </li>
           
 
             <li>
-              <Link href={"/about"}>About</Link>
+              <Link href={"/about"}>About Us</Link>
             </li>
 
             <li>
@@ -53,12 +53,13 @@ function Navbar() {
             </li>
 
             <li>
-              <Link href={"/explore"}>Explore</Link>
+              <Link href={"/project"}>Explore Projects</Link>
+
             </li>
            
 
             <li>
-              <Link href={"/about"}>About</Link>
+              <Link href={"/about"}>About Us</Link>
             </li>
 
             <li>
