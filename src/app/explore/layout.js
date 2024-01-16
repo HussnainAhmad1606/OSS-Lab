@@ -6,18 +6,14 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Home - OSS Lab',
+  title: 'Explore - OSS Lab',
   description: 'Marketplace for your next open source project',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html data-theme="light" lang="en">
-      <body className={inter.className}>
-        <Navbar/>
+   <>
         {children}
-        <Footer/>
-        </body>
-    </html>
+    </>
   )
 }
