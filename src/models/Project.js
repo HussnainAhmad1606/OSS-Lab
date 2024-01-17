@@ -6,6 +6,8 @@ const userSchema = new Schema({
   adderEmail: { type: String },
   projectName: { type: String },
   coverImage: { type: String },
+  difficulty: { type: String },
+  skills: [{ type: String }],
   projectDescription: { type: String },
   gitHubUrl: { type: String },
   isBlocked: { type: Boolean },

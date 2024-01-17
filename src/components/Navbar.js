@@ -1,8 +1,23 @@
 import Link from "next/link";
 import React from "react";
+import { ToastContainer } from "react-toastify";
 
+import 'react-toastify/dist/ReactToastify.css';
 function Navbar() {
   return (
+<>
+     <ToastContainer
+      position="bottom-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark"
+      />
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
@@ -31,16 +46,17 @@ function Navbar() {
             </li>
 
             <li>
-              <Link href={"/project"}>Explore Projects</Link>
+              <Link href={"/projects"}>Explore Projects</Link>
             </li>
-          
-
-            <li>
-              <Link href={"/about"}>About Us</Link>
-            </li>
+        
 
             <li>
               <Link href={"/add-project"}>Add a Project</Link>
+            </li>
+
+            
+            <li>
+              <Link href={"/about"}>About Us</Link>
             </li>
           </ul>
         </div>
@@ -53,17 +69,19 @@ function Navbar() {
             </li>
 
             <li>
-              <Link href={"/project"}>Explore Projects</Link>
+              <Link href={"/projects"}>Explore Projects</Link>
 
             </li>
            
 
-            <li>
-              <Link href={"/about"}>About Us</Link>
-            </li>
 
             <li>
               <Link href={"/add-project"}>Add a Project</Link>
+            </li>
+
+            
+            <li>
+              <Link href={"/about"}>About Us</Link>
             </li>
         </ul>
       </div>
@@ -82,6 +100,8 @@ function Navbar() {
 </label>
       </div>
     </div>
+ 
+      </>
   );
 }
 

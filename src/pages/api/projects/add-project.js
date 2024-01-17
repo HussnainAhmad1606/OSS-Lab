@@ -8,8 +8,8 @@ const handler = async (req, res) => {
     projectName,
     projectDescription,
     gitHubUrl,
-    isBlocked,
-    isOwner,
+    isOwner
+   
   } = req.body;
   if (req.method == "POST") {
     let project = new Project({
@@ -18,10 +18,12 @@ const handler = async (req, res) => {
       projectName: projectName,
       projectDescription: projectDescription,
       gitHubUrl: gitHubUrl,
-      isBlocked: isBlocked,
       coverImage: "",
       isOwner: isOwner,
+      difficulty: "",
+      skills: [],
       isPublished: false,
+      isBlocked: false,
     });
     await project.save();
     res
