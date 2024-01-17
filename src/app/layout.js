@@ -3,16 +3,16 @@ import '@/css/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
-
+import { Analytics } from '@vercel/analytics/react';
 export const metadata = {
   openGraph: {
-    title: 'SOS Lab',
-  description: 'Marketplace for your next open source project',
+    title: 'Welcome to SOS Lab',
+  description: 'An opportunity for your next open source project',
     url: 'https://nextjs.org',
     siteName: 'Next.js',
     images: [
       {
-        url: '/api/og',
+        url: 'https://oss-lab.vercel.app/api/og',
         width: 800,
         height: 600,
         alt: "SOS Lab"
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
     <html data-theme="light" lang="en">
       <body className={inter.className}>
         <Navbar/>
-        
+        <Analytics />
         {children}
         <Footer/>
         </body>
