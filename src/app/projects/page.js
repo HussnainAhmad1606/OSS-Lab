@@ -21,10 +21,13 @@ export default function Home() {
     return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h1 className='text-4xl font-bold my-10'>Explore Some Projects</h1>
-      <div className='grid grid-cols-3'>
+      {
+        isLoading ? <h1>Loading...</h1>:null
+      }
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
         {
-          isLoading ? <h1>Loading...</h1> : projects.map((project, index) => {
-            return <ProjectCard key={index} projectName={project.projectName} projectDesc={project.projectDesc} skills={project.skills} difficulty={project.difficulty} projectId={project._id} />
+          projects.map((project, index) => {
+            return <ProjectCard key={index} projectName={project.projectName} projectDesc={project.projectDescription} skills={project.skills} difficulty={project.difficulty} gitHubUrl={project.gitHubUrl} projectId={project._id} />
           })
         }
       </div>

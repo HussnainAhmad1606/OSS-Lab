@@ -5,8 +5,22 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Home - OSS Lab',
+  openGraph: {
+    title: 'SOS Lab',
   description: 'Marketplace for your next open source project',
+    url: 'https://nextjs.org',
+    siteName: 'Next.js',
+    images: [
+      {
+        url: '/api/og',
+        width: 800,
+        height: 600,
+        alt: "SOS Lab"
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({ children }) {

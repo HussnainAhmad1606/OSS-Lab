@@ -148,7 +148,7 @@ export default function addProject() {
 
       <label className="form-control w-full max-w-xs">
         <div className="label">
-          <span className="label-text">GitHub/GitLab Repository URL: </span>
+          <span className="label-text">GitHub Repository URL: </span>
         </div>
         <input
         value={gitHubUrl}

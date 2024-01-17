@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { ToastContainer } from "react-toastify";
@@ -60,7 +61,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">OSS Lab</a>
+        <Link href={"/"} className="btn btn-ghost text-xl"><Image src={"/logo.png"} width={40} height={40}/>OSS Lab</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
