@@ -5,8 +5,10 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 import { Analytics } from '@vercel/analytics/react';
 export const metadata = {
+  title: "Welcome to OSS Lab",
+  description: "An opportunity for your next open source project",
   openGraph: {
-    title: 'Welcome to SOS Lab',
+    title: 'Welcome to OSS Lab',
   description: 'An opportunity for your next open source project',
     url: 'https://nextjs.org',
     siteName: 'Next.js',
@@ -15,7 +17,7 @@ export const metadata = {
         url: 'https://oss-lab.vercel.app/api/og',
         width: 800,
         height: 600,
-        alt: "SOS Lab"
+        alt: "OSS Lab"
       }
     ],
     locale: 'en_US',

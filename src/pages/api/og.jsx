@@ -64,7 +64,7 @@ export default async function handler() {
             lineHeight: 1.4,
           }}
         >
-          SOS LAB
+          OSS LAB
         </div>
         <div style={{
             fontSize: 40,

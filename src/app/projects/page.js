@@ -22,7 +22,9 @@ export default function Home() {
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h1 className='text-4xl font-bold my-10'>Explore Some Projects</h1>
       {
-        isLoading ? <h1>Loading...</h1>:null
+        isLoading ?(
+          <span className="loading loading-ring loading-lg"></span>
+          ):null
       }
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
         {
