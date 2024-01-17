@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 import { Analytics } from '@vercel/analytics/react';
+import HeroSection from '@/components/HeroSection'
 export const metadata = {
   title: "Welcome to OSS Lab",
   description: "An opportunity for your next open source project",
