@@ -1,13 +1,38 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Head from 'next/head';
+import Head from "next/head";
+import RepoCard from "@/components/RepoCard";
+import { FaStar } from "react-icons/fa";
+import { VscIssues } from "react-icons/vsc";
+import { BiGitRepoForked } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
 
 
 export default function SingleProject({ projectID }) {
   const [project, setProject] = useState({ projectName: "" });
   const [isLoading, setIsLoading] = useState(true);
   const [slug, setSlug] = useState("");
+  const [repoData, setRepoData] = useState({});
+  const [contributors, setContributors] = useState(0);
+
+
+  const getContributors = async (output) => {
+
+   const req = await fetch(`https://api.github.com/repos/${output}/contributors`);
+    const result = await req.json();
+    setContributors(result.length)
+  }
+
+  const getProjectData = async(output) => {
+    const data = await fetch(`https://api.github.com/repos/${output}`)
+    const result = await data.json();
+    setRepoData(result);
+    console.log(result);
+
+    getContributors(output);
+
+  }
   const getProject = () => {
     const data = {
       projectId: projectID,
@@ -25,11 +50,14 @@ export default function SingleProject({ projectID }) {
         setProject(data.project);
         setIsLoading(false);
 
-      var parts = (data.project.gitHubUrl).split('/');
-      var output = parts.slice(3).join('/');
-      console.log(output)
-      setSlug(output)
+        var parts = data.project.gitHubUrl.split("/");
+        var output = parts.slice(3).join("/");
+        console.log(output);
+        setSlug(output);
+        getProjectData(output);
       });
+
+        
   };
 
   useEffect(() => {
@@ -41,25 +69,79 @@ export default function SingleProject({ projectID }) {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage:
-          `url(https://opengraph.githubassets.com/6fa26478850d4904c9e8567353350c87f35c71f7232cce8eec1d44e3ba1ca9a3/${slug})`,
+          backgroundImage: `url(https://opengraph.githubassets.com/6fa26478850d4904c9e8567353350c87f35c71f7232cce8eec1d44e3ba1ca9a3/${slug})`,
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">{project.projectName}</h1>
-            <p className="mb-5">
-             {project.projectDescription}
-            </p>
-            <a href={project.gitHubUrl} target="_blank" className="btn btn-primary">Open Repository</a>
+            <p className="mb-5">{project.projectDescription}</p>
+            <a
+              href={project.gitHubUrl}
+              target="_blank"
+              className="btn btn-primary"
+            >
+              Open Repository
+            </a>
           </div>
         </div>
       </div>
       {isLoading ? (
         <span className="loading loading-ring loading-lg"></span>
       ) : (
-        <h1>Name: {project.projectName}</h1>
+        <div className="flex">
+        <div className="grid grid-cols-2">
+
+
+          <div className="m-10 card w-96 bg-base-100 shadow-xl">
+            <div className="flex justify-center items-center card-body">
+              <p className="text-7xl font-bold">{repoData.watchers_count}</p>
+              <h2 className="text-2xl my-2 card-title"><FaStar/> Stars</h2>
+            </div>
+          </div>
+
+
+          <div className="m-10 card w-96 bg-base-100 shadow-xl">
+            <div className="flex justify-center items-center card-body">
+              <p className="text-7xl font-bold">{repoData.open_issues}</p>
+              <h2 className="text-2xl my-2 card-title"><VscIssues/> Issues</h2>
+            </div>
+          </div>
+
+
+          <div className="m-10 card w-96 bg-base-100 shadow-xl">
+            <div className="flex justify-center items-center card-body">
+              <p className="text-7xl font-bold">{contributors+1}</p>
+              <h2 className="text-2xl my-2 card-title"><FaUser/> Contributors</h2>
+            </div>
+          </div>
+
+
+          <div className="m-10 card w-96 bg-base-100 shadow-xl">
+            <div className="flex justify-center items-center card-body">
+              <p className="text-7xl font-bold">{repoData.forks}</p>
+              <h2 className="text-2xl my-2 card-title"><BiGitRepoForked/> Forks</h2>
+            </div>
+          </div>
+
+
+          </div>
+          <div>
+            <RepoCard
+              projectName={project.projectName}
+              projectDesc={project.projectDescription}
+              skills={project.skills}
+              difficulty={project.difficulty}
+              gitHubUrl={project.gitHubUrl}
+              projectId={project._id}
+                organization={repoData?.owner?.login}
+                avatar={repoData?.owner?.avatar_url}
+                user={repoData?.owner?.type}
+                userUrl={repoData?.html_url}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

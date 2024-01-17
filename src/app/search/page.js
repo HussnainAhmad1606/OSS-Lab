@@ -11,6 +11,9 @@ export default function Home() {
   const [skills, setSkills] = useState("");
   const [isAdvanced, setIsAdvanced] = useState(true);
   const [strictMode, setStrictMode] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [isLoading,setIsLoading] = useState(false);
+  const [isOnce, setIsOnce] = useState(true);
   const searchQuery = () => {
     const data = {
         name: name,
@@ -27,6 +30,8 @@ export default function Home() {
         body: JSON.stringify(data),
         }).then(res => res.json()).then(data => {
         console.log(data);
+        setProjects(data.projects);
+        setIsOnce(false)
     })
   }
  
@@ -99,7 +104,20 @@ export default function Home() {
       </label>
 
 
-    
+      {
+            !isOnce?(
+                <h1 className='text-center font-bold text-3xl'>Found ({projects.length}) Results</h1>
+            ):null
+        }
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+       
+        {
+        
+          projects.map((project, index) => {
+            return <ProjectCard key={index} projectName={project.projectName} projectDesc={project.projectDescription} skills={project.skills} difficulty={project.difficulty} gitHubUrl={project.gitHubUrl} projectId={project._id} />
+          })
+        }
+      </div>
     </div>
   )
 }
