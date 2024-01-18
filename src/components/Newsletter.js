@@ -56,7 +56,6 @@ function Newsletter() {
         }
 
         setEmail('');
-        alert('Success! 🎉 You are now subscribed to the newsletter.');
     }
   return (
     <div 
