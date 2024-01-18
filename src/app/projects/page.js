@@ -16,7 +16,7 @@ export default function Home() {
 
 
   const fetchProjects = async() => {
-    setIsNewLoading(true)
+    setIsLoading(true)
     // console.log("Fetching more....")
    
 
@@ -47,7 +47,7 @@ export default function Home() {
     setPage(page + 1);
 
     setIsLoading(false)
-    setIsNewLoading(false)
+  
     })
 
     
@@ -68,11 +68,7 @@ export default function Home() {
     return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h1 className='text-4xl font-bold my-10'>Explore Some Projects</h1>
-      {
-        isLoading ?(
-          <span className="loading loading-ring loading-lg"></span>
-          ):null
-      }
+      
       <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
         {
           allPosts.map((project, index) => {
@@ -82,11 +78,10 @@ export default function Home() {
       </div>
 
       {
-      isNewLoading?(
-<center><span className="my-10 text-center loading loading-dots loading-lg"></span></center>
-      ):null
-    }
-
+        isLoading ?(
+          <span className="loading loading-ring loading-lg"></span>
+          ):null
+      }
       {
   isLoading==false&&allPosts.length!==totalPosts?(
     <div className='flex justify-center items-center'>
