@@ -1,3 +1,6 @@
+import { Cabin } from 'next/font/google'
+const inter = Cabin({ subsets: ['latin'] })
+
 import { ImageResponse } from '@vercel/og';
 export const config = {
   runtime: 'edge',
@@ -10,6 +13,7 @@ export default async function handler() {
   return new ImageResponse(
     (
         <div
+        className={inter.className}
         style={{
           display: 'flex',
           height: '100%',
