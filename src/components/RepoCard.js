@@ -32,8 +32,8 @@ function ProjectCard({
       setDiff("primary");
       return;
     }
-    setDiff("error");
-    console.log(diff);
+    setDiff("secondary");
+
   };
 
   return (

@@ -6,11 +6,11 @@ import connectDB from "@/middlewares/connectDB";
 
 const handler = async (request, response) => {
     const page = parseInt(request.body.page || 1);
-    const limit = 2;
+    const limit = 5;
 
     const skip = (page - 1) * limit;
 
-    let posts = await Project.find({ }).skip(skip).limit(limit)
+    let posts = await Project.find({ isPublished: true }).skip(skip).limit(limit)
     let allPosts = await Project.find({ })
     let postsLength = allPosts.length;
 

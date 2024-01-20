@@ -17,38 +17,43 @@ export default function SingleProject({ projectID }) {
 
 
   const getProjectData = async (output) => {
+    console.log(`https://api.github.com/repos/${output}`)
     const data = await fetch(`https://api.github.com/repos/${output}`);
     const res = await data.json();
+    console.log(res)
     if (!res.ok) {
       
      
-        if (res.message.includes("API rate limit exceeded")) {
-          toast.error('API Limit Exceed 🙂. You need to wait for sometime before checking out any project.', {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark"
-            });
-            return;
+        if (res.message) {
+          if (res.message.includes("API rate limit exceeded")) {
+            toast.error('API Limit Exceed 🙂. You need to wait for sometime before checking out any project.', {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark"
+              });
+              return;
+          }
+          else{
+            toast.error('ERROR occured while fetching the data', {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark"
+              });
+              return;
+          
+          } 
         }
-       else{
-        toast.error('ERROR occured while fetching the data', {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark"
-          });
-          return;
       
-      } 
     }
 
 

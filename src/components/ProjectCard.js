@@ -21,9 +21,11 @@ setSlug(output)
     }
     else if (difficulty == "Intermediate") {
       setDiff("primary");
-      return;
+      
     }
-   setDiff("error");
+    else {
+      setDiff("secondary");
+    }
    console.log(diff)
   }
   
@@ -31,7 +33,7 @@ setSlug(output)
     <div className="m-10 card w-96 bg-base-100 shadow-xl">
   <figure><img src={`https://opengraph.githubassets.com/6fa26478850d4904c9e8567353350c87f35c71f7232cce8eec1d44e3ba1ca9a3/${slug}`} alt="Shoes" /></figure>
   <div className="card-body">
-    <h2 className="my-2 card-title">{projectName} <div className={`badge badge-lg badge-${difficulty=="Beginners"?"accent":difficulty=="Intermediate"?"primary":"error"}`}>{difficulty}</div></h2>
+    <h2 className="my-2 card-title">{projectName} <div className={`badge badge-lg badge-${diff}`}>{difficulty}</div></h2>
     <p>{projectDesc}</p>
 {}
     <div className='projectSkills'>
