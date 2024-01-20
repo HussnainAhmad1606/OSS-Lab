@@ -11,7 +11,7 @@ const handler = async (request, response) => {
     const skip = (page - 1) * limit;
 
     let posts = await Project.find({ isPublished: true }).skip(skip).limit(limit)
-    let allPosts = await Project.find({ })
+    let allPosts = await Project.find({ isPublished: true })
     let postsLength = allPosts.length;
 
     return response.status(200).json({allPostsLength: postsLength,posts: posts})
