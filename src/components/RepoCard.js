@@ -37,7 +37,7 @@ function ProjectCard({
   };
 
   return (
-    <div className="m-10 card w-96 bg-base-100 shadow-xl">
+    <div className="m-10 card w-80 bg-base-100 shadow-xl">
    <div className="my-5 flex justify-center items-center">
    <div className="avatar">
         <div className="w-24 rounded-full">
@@ -46,7 +46,7 @@ function ProjectCard({
       </div>
    </div>
       <div className="card-body">
-        <h2 className="text-4xl font-bold">{projectName}</h2>
+        <h2 className="text-4xl text-center font-bold">{projectName}</h2>
         
         <p>{projectDesc}</p>
         <div className={`badge badge-lg badge-${difficulty=="Beginners"?"accent":difficulty=="Intermediate"?"primary":"error"}`}>{difficulty}</div>

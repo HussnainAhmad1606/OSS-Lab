@@ -118,9 +118,11 @@ export default function SingleProject({ projectID }) {
       {isLoading ? (
         <span className="loading loading-ring loading-lg"></span>
       ) : (
-        <div className="flex">
-          <div className="grid grid-cols-2">
-            <div className="m-10 card w-96 bg-base-100 shadow-xl">
+        <div className="flex justify-around w-full items-center flex-row md:flex-row lg:flex-row flex-col">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+            <div style={{
+              width: "80%"
+            }} className="m-10 card w-[95%] bg-base-100 shadow-xl">
               <div className="flex justify-center items-center card-body">
                 <p className="text-7xl font-bold">{repoData.watchers_count}</p>
                 <h2 className="text-2xl my-2 card-title">
@@ -129,7 +131,9 @@ export default function SingleProject({ projectID }) {
               </div>
             </div>
 
-            <div className="m-10 card w-96 bg-base-100 shadow-xl">
+            <div style={{
+              width: "80%"
+            }} className="m-10 card w-[95%] bg-base-100 shadow-xl">
               <div className="flex justify-center items-center card-body">
                 <p className="text-7xl font-bold">{repoData.open_issues}</p>
                 <h2 className="text-2xl my-2 card-title">
@@ -139,7 +143,9 @@ export default function SingleProject({ projectID }) {
             </div>
 
 
-            <div className="m-10 card w-96 bg-base-100 shadow-xl">
+            <div style={{
+              width: "80%"
+            }} className="m-10 card w-96 bg-base-100 shadow-xl">
               <div className="flex justify-center items-center card-body">
                 <p className="text-7xl font-bold">{repoData.forks}</p>
                 <h2 className="text-2xl my-2 card-title">
