@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import "@/css/single-project.css"
 function ProjectCard({projectName, projectDesc, projectId, skills, difficulty, gitHubUrl}) {
 
-  const [diff, setDiff] = useState("not");
+  const [diff, setDiff] = useState("");
   const [slug, setSlug] = useState("");
   
 
@@ -26,7 +26,7 @@ setSlug(output)
     else {
       setDiff("secondary");
     }
-   console.log(diff)
+   
   }
   
   return (

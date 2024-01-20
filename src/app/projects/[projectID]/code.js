@@ -100,15 +100,15 @@ export default function SingleProject({ projectID }) {
           backgroundImage: `url(https://opengraph.githubassets.com/6fa26478850d4904c9e8567353350c87f35c71f7232cce8eec1d44e3ba1ca9a3/${slug})`,
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-overlay"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">{project.projectName}</h1>
-            <p className="mb-5">{project.projectDescription}</p>
+            <h1 className="mb-5 text-5xl text-white font-bold">{project.projectName}</h1>
+            <p className="mb-5 text-white">{project.projectDescription}</p>
             <a
               href={project.gitHubUrl}
               target="_blank"
-              className="btn btn-primary"
+              className="openRepo btn btn-primary"
             >
               Open Repository
             </a>

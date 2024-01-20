@@ -1,8 +1,8 @@
-import { Inter } from 'next/font/google'
+import { Cabin } from 'next/font/google'
 import '@/css/globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-const inter = Inter({ subsets: ['latin'] })
+const inter = Cabin({ subsets: ['latin'] })
 import { Analytics } from '@vercel/analytics/react';
 import HeroSection from '@/components/HeroSection'
 export const metadata = {
