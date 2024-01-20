@@ -37,7 +37,7 @@ function ProjectCard({
   };
 
   return (
-    <div className="m-10 card w-80 bg-base-100 shadow-xl">
+    <div className="m-10 card w-[75%] bg-base-100 shadow-xl">
    <div className="my-5 flex justify-center items-center">
    <div className="avatar">
         <div className="w-24 rounded-full">

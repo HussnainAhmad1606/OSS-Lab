@@ -68,7 +68,7 @@ export default function Home() {
   
     return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <h1 className='text-4xl font-bold my-10'>Explore Some Projects</h1>
+      <h1 className='text-4xl p-10 text-center font-bold my-10'>Explore Some Projects</h1>
       
       <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4'>
         {
