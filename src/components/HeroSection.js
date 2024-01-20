@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function HeroSection() {
@@ -8,7 +9,7 @@ function HeroSection() {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Empowering Contributions, Building Excellence</h1>
       <p className="mb-5">Unleashing the Power of Open Source Collaboration.</p>
-      <button className="btn btn-primary">Get Started</button>
+      <Link href={"/projects"} className="btn btn-primary">Get Started</Link>
     </div>
   </div>
 </div>
