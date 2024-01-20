@@ -6,7 +6,7 @@ import connectDB from "@/middlewares/connectDB";
 
 const handler = async (request, response) => {
     const page = parseInt(request.body.page || 1);
-    const limit = 1;
+    const limit = 5;
 
     const skip = (page - 1) * limit;
 
