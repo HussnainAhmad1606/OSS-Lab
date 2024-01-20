@@ -78,13 +78,13 @@ export default function SingleProject({ projectID }) {
       .then((data) => {
         console.log(data);
         setProject(data.project);
-        setIsLoading(false);
-
+        
         var parts = data.project.gitHubUrl.split("/");
         var output = parts.slice(3).join("/");
         console.log(output);
         setSlug(output);
         getProjectData(output);
+        setIsLoading(false);
       });
   };
 

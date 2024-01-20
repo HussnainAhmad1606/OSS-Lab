@@ -16,6 +16,7 @@ export default function Home() {
 
 
   const fetchProjects = async() => {
+    console.log("Total Projects: ", totalPosts, " Current Posts: ", currentPosts)
     setIsLoading(true)
     // console.log("Fetching more....")
    
@@ -29,7 +30,7 @@ export default function Home() {
     })
     .then(res => res.json())
     .then(data => {
-      
+      console.log(data);
       // console.log(`Expression: ${allPosts.length+data.posts.length} - ${totalPosts}`)
       setTotalPosts(data.allPostsLength)
       let len = (data.posts).length;
@@ -69,7 +70,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col items-center justify-center">
       <h1 className='text-4xl font-bold my-10'>Explore Some Projects</h1>
       
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4'>
         {
           allPosts.map((project, index) => {
             return <ProjectCard key={project.projectName+index} projectName={project.projectName} projectDesc={project.projectDescription} skills={project.skills} difficulty={project.difficulty} gitHubUrl={project.gitHubUrl} projectId={project._id} />
@@ -83,7 +84,7 @@ export default function Home() {
           ):null
       }
       {
-  isLoading==false&&allPosts.length!==totalPosts?(
+  isLoading==false&&isMore?(
     <div className='flex justify-center items-center'>
       <button className='my-10 btn redBtn btn-primary' onClick={fetchProjects}>Load More...</button>
       </div>
@@ -93,7 +94,7 @@ export default function Home() {
 
 
  {
-  isLoading==false&&allPosts.length==totalPosts?(
+  isLoading==false&&isMore==false?(
     <h1 className='my-10 text-center font-bold'>You have seen all projects 👏</h1>
       ):null
  }
